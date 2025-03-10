@@ -51,7 +51,7 @@ task simple_test(type: Test) {
     }
 }
 
-task hw11test(type: Test) {
+task hw12test(type: Test) {
     useJUnitPlatform {
         includeTags("registrationPage")
     }
