@@ -10,10 +10,18 @@ import org.junit.jupiter.api.BeforeAll;
 public class TestBase {
         @BeforeAll
         static void setupConfiguration() {
-            Configuration.browserSize = "1920x2160";
             Configuration.baseUrl = System.getProperty("baseUrl", "https://demoqa.com");
+
+            String Remote = System.getProperty("remote", "selenoid.autotests.cloud");
+            Configuration.remote = "https://user1:1234@" + Remote + "/wd/hub";
+
+            Configuration.browser = System.getProperty("browser", "chrome");
+            Configuration.browserVersion = System.getProperty("browserVersion", "126.0");
+            Configuration.browserSize = System.getProperty("browserSize", "1920x2160");
             Configuration.pageLoadStrategy = "eager";
-            Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+
+
+
             SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
